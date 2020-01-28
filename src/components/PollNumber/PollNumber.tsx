@@ -4,6 +4,9 @@ import styled from "styled-components";
 
 const Container = styled("div")`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px;
 `;
 
 const Poll = styled("div")`
@@ -55,6 +58,9 @@ export default class PollNumber extends React.Component {
             <PollText>{poll}</PollText>
           </Poll>
         ))}
+        <CurPoll>
+          <PollText>Hi</PollText>
+        </CurPoll>
       </Container>
     );
   }
