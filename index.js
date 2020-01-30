@@ -17,7 +17,6 @@ app.post("/api/sendanswer", function(req, res) {
 
 app.get("/api/questions/:id", function(req, res) {
   var questionID = req.params.id;
-  var counts1 = {};
 
   mongoHandler
     .getCounts(questionID)
