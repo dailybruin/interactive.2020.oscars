@@ -41,8 +41,8 @@ class MongoHandler {
       question_id: questionId
     });
 
-    for (var answerID in Question.answers) {
-      var currAnswer = await this.AnswerMapping.findById(answerID);
+    for (var i = 0; i < Question.answers.length; i++) {
+      var currAnswer = await this.AnswerMapping.findById(Question.answers[i]);
       counts[currAnswer.text] = currAnswer.count;
     }
 

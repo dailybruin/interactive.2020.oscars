@@ -1,20 +1,27 @@
 var express = require("express");
+const bodyParser = require("body-parser");
 const MongoHandler = require("./mongo/mongohandler");
 const mongoHandler = new MongoHandler();
 
 var app = express();
+app.use(bodyParser.json());
 
-app.post("/", function(req, res) {
+app.post("/api/sendanswer", function(req, res) {
   var answer = req.body.answer;
   var questionId = req.body.questionId;
 
   mongoHandler.makeAnswer(answer, questionId);
+
+  res.send({ message: "Received" });
 });
 
 app.get("/api/questions/:id", function(req, res) {
   var questionID = req.params.id;
+  var counts1 = {};
 
-  res.send({ counts: mongoHandler.getCounts(questionID) });
+  mongoHandler
+    .getCounts(questionID)
+    .then(response => res.send({ counts: response }));
 });
 
 app.listen(3000, function() {
