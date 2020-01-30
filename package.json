@@ -10,6 +10,9 @@
     "@types/node": "^12.0.0",
     "@types/styled-components": "^4.4.2",
     "emotion": "^10.0.27",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.10",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
@@ -20,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +43,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.18",
-    "@types/react-dom": "^16.9.5"
+    "@types/react-dom": "^16.9.5",
+    "nodemon": "^2.0.2"
   }
 }
