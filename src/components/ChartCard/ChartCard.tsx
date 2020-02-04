@@ -1,41 +1,30 @@
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import { css } from 'emotion'
+import {colors, fonts} from '../../shared/config'
 
-var data = {
-  datasets: [
-    {
-      data: [
-        '5.31',
-        '9.34',
-        '1.25',
-        '5.54',
-        '8.75',
-      ],
-      backgroundColor: [
-        '#6d786a',
-        '#aaba8c',
-        '#fffcf5',
-        '#efdcac',
-      ],
-      label: 'Dataset 1',
-    },
-  ],
-  labels: [
-    'Compostables',
-    'Paper',
-    'Plastic',
-    'Metal',
-    'Glass',
-  ],
-}
+const {black} = colors;
+const {title} = fonts;
+
+
+
 
 function PieChart(props) {
   return (
     <div
      className={css`
-       height: 20vw;
        width: 20vw;
+       height: 20vw;
+       @media (max-width: 1200px){
+         width: 25w;
+         height: 25vw;
+         margin-bottom: 5vh;
+       }
+       @media (max-width: 800px){
+         width: 40vw;
+         height: 40vw;
+         margin-bottom: 5vh;
+       }
      `}
    >
       <Pie
@@ -45,6 +34,9 @@ function PieChart(props) {
           title: {
             display: true,
             text: props.title,
+            fontFamily: "Calibri",
+            fontSize: 30,
+            fontColor: black,
           },
           legend: {
             display: false,
@@ -58,33 +50,41 @@ function PieChart(props) {
 function ChartCard(props) {
   return (
     <div>
+
       <div
         className={css`
           display: flex;
-          justify-content: space-between;
-          margin: 10vh 20vw;
+          justify-content: center;
+          flex-wrap: wrap;
           `}
       >
-      <PieChart title = "User Votes" data = {data}/>
-      <div
-      className={css`
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-        border: 1px solid #D2D2D2;
-        position: relative;
-        top: 17vw;
-        sizing: border-box;
-        padding: 15px 40px;
-        `}
-      >
-
-        NEXT
-
+      <div className={css`margin: 0 10vw;`}>
+        <PieChart title = "User Votes" data = {props.userData}/>
+      </div>
+      <div className={css`margin: 0 10vw;`}>
+        <PieChart title = "DB Votes" data = {props.dbData}/>
+      </div>
       </div>
 
-      <PieChart title = "DB Votes" data = {data}/>
+      <div>
+        <button
+          className={
+              css`
+                border: 1px solid grey;
+                backgroundColor: white;
+                height: 40px;
+                width: 100px;
+                position: relative;
+                bottom: 50px;
+                font-size: 30px;
+                font-weight: bold;
+                @media (max-width: 800px){
+                  bottom: 0px;
+                }
+            `}
+        >
+         NEXT
+        </button>
       </div>
     </div>
   )
