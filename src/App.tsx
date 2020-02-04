@@ -23,6 +23,7 @@ var data = {
     'hi'
   ],
 }
+import Card from "./components/Card/Card";
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
         <Question></Question>
         <Poll></Poll>
         <PollNumber></PollNumber>
+        <Card></Card>
       </header>
     </div>
   );
