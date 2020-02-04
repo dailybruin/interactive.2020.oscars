@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Question></Question>
         <Poll></Poll>
         <PollNumber></PollNumber>
-        <Card></Card>
+        <Card> </Card>
       </header>
     </div>
   );
