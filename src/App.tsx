@@ -6,6 +6,7 @@ import PollNumber from "./components/PollNumber/PollNumber";
 import ChartCard from "./components/ChartCard/ChartCard";
 import Card from "./components/Card/Card";
 import Header from "./components/Header/Header";
+import PollWrapper from "./components/PollWrapper/PollWrapper";
 
 var data = {
   datasets: [
@@ -33,10 +34,10 @@ const App: React.FC = () => {
         />
         <ChartCard userData={data} dbData={data} />
         <br></br>
-        <Question></Question>
-        <Poll></Poll>
-        <PollNumber></PollNumber>
         <Card> </Card>
+        <img src={logo} className="App-logo" alt="logo" />
+        <PollWrapper></PollWrapper>
+        <Card></Card>
       </header>
     </div>
   );
