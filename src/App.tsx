@@ -5,31 +5,24 @@ import Poll from "./components/Poll/Poll";
 import Question from "./components/Question/Question";
 import PollNumber from "./components/PollNumber/PollNumber";
 import ChartCard from "./components/ChartCard/ChartCard";
-
+import Card from "./components/Card/Card";
 
 var data = {
   datasets: [
     {
-      data: [
-        '1'
-      ],
-      backgroundColor: [
-        "#F6D58B"
-      ],
-      label: 'Dataset 1',
-    },
+      data: ["1"],
+      backgroundColor: ["#F6D58B"],
+      label: "Dataset 1"
+    }
   ],
-  labels: [
-    'hi'
-  ],
-}
-import Card from "./components/Card/Card";
+  labels: ["hi"]
+};
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <ChartCard userData = {data} dbData = {data}/>
+        <ChartCard userData={data} dbData={data} />
         <br></br>
         <Question></Question>
         <Poll></Poll>
