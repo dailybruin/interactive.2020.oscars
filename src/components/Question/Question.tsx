@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 import styled from "styled-components";
 
-const Question = styled("div")`
+const Quest = styled("div")`
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: normal;
@@ -13,13 +13,23 @@ const Question = styled("div")`
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
   margin-bottom: 2%;
 
   color: #272526;
 `;
 
-export default class Poll extends React.Component {
+interface PollState {}
+
+interface PollProps {
+  q: string;
+}
+
+export default class Question extends React.Component<PollProps, PollState> {
+  constructor(props: any) {
+    super(props);
+  }
   render() {
-    return <Question>Who is going to win best movie thingy?</Question>;
+    return <Quest>{this.props.q}</Quest>;
   }
 }
