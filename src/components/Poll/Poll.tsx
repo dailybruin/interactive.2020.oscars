@@ -46,7 +46,14 @@ let candidates = [
   "Dylan"
 ];
 
-export default class Poll extends React.Component {
+interface PollState {}
+
+interface PollProps {
+  ans: string[];
+  incrementFunc: any;
+}
+
+export default class Poll extends React.Component<PollProps, PollState> {
   render() {
     return (
       <Container>

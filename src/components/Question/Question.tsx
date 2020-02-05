@@ -18,8 +18,14 @@ const Question = styled("div")`
   color: #272526;
 `;
 
-export default class Poll extends React.Component {
+interface PollState {}
+
+interface PollProps {
+  q: string;
+}
+
+export default class Poll extends React.Component<PollProps, PollState> {
   render() {
-    return <Question>Who is going to win best movie thingy?</Question>;
+    return <Question>{this.props.q}</Question>;
   }
 }

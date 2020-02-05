@@ -72,7 +72,14 @@ const CurPollText = styled("div")`
 
 let polls = ["1", "2", "3", "4"];
 
-export default class PollNumber extends React.Component {
+interface PollState {}
+
+interface PollProps {
+  questionNumber: number;
+  numberOfQuestions: number;
+}
+
+export default class PollNumber extends React.Component<PollProps, PollState> {
   render() {
     return (
       <Container>
