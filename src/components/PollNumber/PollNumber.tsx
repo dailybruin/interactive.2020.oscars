@@ -40,8 +40,6 @@ const PollText = styled("div")`
 const CurPoll = styled("div")`
   width: 94px;
   height: 47px;
-  left: 562px;
-  top: 2307px;
 
   display: flex;
   border: 1px solid #272526;
@@ -70,9 +68,10 @@ const CurPollText = styled("div")`
   color: #f5f5f5;
 `;
 
-let polls = ["1", "2", "3", "4"];
-
-interface PollState {}
+interface PollState {
+  showChart: number;
+  ind: number;
+}
 
 interface PollProps {
   questionNumber: number;
@@ -80,17 +79,32 @@ interface PollProps {
 }
 
 export default class PollNumber extends React.Component<PollProps, PollState> {
+  constructor(props: any) {
+    super(props);
+  }
   render() {
+    let numQuestions = this.props.numberOfQuestions;
+
+    const { questionNumber } = this.props;
+    const nums = Array.from(Array(numQuestions).keys());
+
     return (
       <Container>
-        {polls.map(poll => (
-          <Poll>
-            <PollText>{poll}</PollText>
-          </Poll>
-        ))}
-        <CurPoll>
-          <CurPollText>5</CurPollText>
-        </CurPoll>
+        {nums.map(thing => {
+          let qNumber = thing + 1;
+          if (qNumber == questionNumber) {
+            return (
+              <CurPoll>
+                <CurPollText>{questionNumber}</CurPollText>
+              </CurPoll>
+            );
+          }
+          return (
+            <Poll>
+              <PollText>{qNumber}</PollText>
+            </Poll>
+          );
+        })}
       </Container>
     );
   }

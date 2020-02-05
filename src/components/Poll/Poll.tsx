@@ -14,19 +14,14 @@ const Item = styled("div")`
   margin-bottom: 2%; /* (100-32*3)/2 */
 `;
 
-const Item2 = styled("div")`
-  flex: 0 32%;
-  height: 100px;
-  margin-bottom: 2%; /* (100-32*3)/2 */
-`;
-
 const Box = styled("div")`
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 25px;
+
   /* identical to box height */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   color: #434343;
 
@@ -34,19 +29,16 @@ const Box = styled("div")`
   border-radius: 41.5px;
 `;
 
-let candidates = [
-  "Jed",
-  "Tyler",
-  "Peter",
-  "Luke",
-  "Garrett",
-  "Mike",
-  "Connor",
-  "Dustin",
-  "Dylan"
-];
-
 interface PollState {}
+const ButtonxD = styled("button")`
+  border: none;
+  background: #f5f5f5;
+`;
+
+interface PollState {
+  showChart: number;
+  ind: number;
+}
 
 interface PollProps {
   ans: string[];
@@ -54,12 +46,23 @@ interface PollProps {
 }
 
 export default class Poll extends React.Component<PollProps, PollState> {
+  constructor(props: any) {
+    super(props);
+  }
+
+  onAnswerClick(ans: string, idx: number): any {
+    this.props.incrementFunc();
+    // this.props.answer = ans;
+  }
+
   render() {
     return (
       <Container>
-        {candidates.map(candidate => (
+        {this.props.ans.map((an, idx) => (
           <Item>
-            <Box>{candidate}</Box>
+            <ButtonxD onClick={() => this.onAnswerClick(an, idx)}>
+              <Box>{an}</Box>
+            </ButtonxD>
           </Item>
         ))}
       </Container>
