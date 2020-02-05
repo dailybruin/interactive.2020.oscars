@@ -6,7 +6,8 @@ export const colors = {
 
 export const fonts = {
   title: "Circular Std",
-  baseText: "Avenir"
+  baseText: "Avenir",
+  body: "Avenir"
 };
 
 export const mediaQueries = {

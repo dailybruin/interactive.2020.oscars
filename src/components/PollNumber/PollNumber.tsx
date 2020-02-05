@@ -5,13 +5,8 @@ import styled from "styled-components";
 const Container = styled("div")`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-`;
-
-const Item = styled("div")`
-  width: 20%;
-  padding-bottom: 0%; /* 32:18, i.e. 16:9 */
-  margin-bottom: 2%; /* (100-32*3)/2 */
+  justify-content: space-around;
+  padding: 5px;
 `;
 
 const Poll = styled("div")`
@@ -21,20 +16,13 @@ const Poll = styled("div")`
   top: 2307px;
 
   display: flex;
-
   border: 1px solid #272526;
-  box-sizing: border-box;
   border-radius: 26px;
   justify-content: center;
+  margin: 5px; /* and that, will result in a 10px gap */
 `;
 
 const PollText = styled("div")`
-  width: 11px;
-  height: 30px;
-  left: 579px;
-  top: 2315px;
-
-  /* font-family: Circular Std; */
   display: flex;
   font-style: normal;
   font-weight: 900;
@@ -50,30 +38,73 @@ const PollText = styled("div")`
 `;
 
 const CurPoll = styled("div")`
-  /* font-family: Circular Std; */
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 30px;
-  text-transform: uppercase;
+  width: 94px;
+  height: 47px;
+
+  display: flex;
+  border: 1px solid #272526;
+  border-radius: 26px;
+  justify-content: center;
+  border-radius: 50%;
 
   color: #ffffff;
   background: #272526;
   border-radius: 23.5px 26px 26px 26px;
+  margin: 5px; /* and that, will result in a 10px gap */
 `;
-let polls = ["1", "2", "3", "4", "5"];
 
-export default class PollNumber extends React.Component {
+const CurPollText = styled("div")`
+  display: flex;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 2px;
+  text-transform: uppercase;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #f5f5f5;
+`;
+
+interface PollState {
+  showChart: number;
+  ind: number;
+}
+
+interface PollProps {
+  questionNumber: number;
+  numberOfQuestions: number;
+}
+
+export default class PollNumber extends React.Component<PollProps, PollState> {
+  constructor(props: any) {
+    super(props);
+  }
   render() {
+    let numQuestions = this.props.numberOfQuestions;
+
+    const { questionNumber } = this.props;
+    const nums = Array.from(Array(numQuestions).keys());
+
     return (
       <Container>
-        {polls.map(poll => (
-          <Item>
+        {nums.map(thing => {
+          let qNumber = thing + 1;
+          if (qNumber == questionNumber) {
+            return (
+              <CurPoll>
+                <CurPollText>{questionNumber}</CurPollText>
+              </CurPoll>
+            );
+          }
+          return (
             <Poll>
-              <PollText>{poll}</PollText>
+              <PollText>{qNumber}</PollText>
             </Poll>
-          </Item>
-        ))}
+          );
+        })}
       </Container>
     );
   }
