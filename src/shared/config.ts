@@ -1,9 +1,12 @@
 export const colors = {
-  gold: "#F6D58B"
+  gold: "#F6D58B",
+  black: "#272526",
+  grey: "#C4C4C4"
 };
 
 export const fonts = {
-  title: "Circular Std"
+  title: "Circular Std",
+  baseText: "Avenir"
 };
 
 export const mediaQueries = {
