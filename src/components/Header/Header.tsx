@@ -14,16 +14,6 @@ const HeaderText = styled("div")`
   font-style: normal;
   font-weight: 900;
   font-size: 96px;
-<<<<<<< Updated upstream
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: ${black};
-  ${mobile} {
-    font-weight: 900;
-    font-size: 48px;
-    line-height: 61px;
-=======
 
   display: flex;
   align-items: center;
@@ -34,7 +24,6 @@ const HeaderText = styled("div")`
   ${mobile} {
     font-weight: 900;
     font-size: 50px;
->>>>>>> Stashed changes
   }
 `;
 
@@ -43,23 +32,10 @@ const CapText = styled("div")`
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   display: flex;
   align-items: center;
   text-align: center;
   color: ${black};
-<<<<<<< Updated upstream
-  ${mobile} {
-    font-size: 14px;
-    line-height: 19px;
-  }
-`;
-
-const Trophy = styled("img")`
-=======
 
   margin-bottom: 5%;
 `;
@@ -67,15 +43,10 @@ const Trophy = styled("img")`
 const Trophy = styled("img")`
   margin-top: 5%;
 
->>>>>>> Stashed changes
   ${notMobile} {
     height: 241px;
     width: auto;
   }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   ${mobile} {
     height: 165px;
     width: auto;

@@ -74,7 +74,7 @@ function ChartCard(props) {
         <button
           className={css`
             border: 1px solid grey;
-            backgroundcolor: white;
+            background-color: white;
             height: 40px;
             width: 100px;
             position: relative;
