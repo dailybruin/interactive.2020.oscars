@@ -12,16 +12,18 @@ const Container = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0px 40px;
 `;
 
 const HeaderText = styled("div")`
   /* font-family: Circular Std; */
   font-style: normal;
   font-weight: 900;
-  font-size: 96px;
+  font-size: 60px;
   width: 100%;
   text-align: center;
   color: ${black};
+  margin: 30px 0;
 
   ${mobile} {
     font-weight: 900;
@@ -33,7 +35,7 @@ const CapText = styled("div")`
   /* font-family: Avenir; */
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 18px;
   align-items: center;
   text-align: center;
   color: ${black};

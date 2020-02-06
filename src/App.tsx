@@ -8,16 +8,17 @@ import ChartCard from "./components/ChartCard/ChartCard";
 import Card from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import PollWrapper from "./components/PollWrapper/PollWrapper";
+import ReactPlayer from "react-player";
 
 import { css } from "emotion";
+import styled from "styled-components";
+import { colors, mediaQueries } from "./shared/config";
 
-const TitleImageProps = {
-  credit: "by this author",
-  imgTitle: "WE PREDICTED THE WINNERS",
-  imgCaption:
-    "yes we predicted the oscars yes we predicted the oscars yes we predicted the oscars",
-  imgURL: "imagfeurl"
-};
+const Line = styled("div")`
+  height: 3px;
+  width: 100%;
+  background-color: ${colors.line};
+`;
 
 const graph_data = {
   datasets: [
@@ -28,11 +29,6 @@ const graph_data = {
     }
   ],
   labels: ["hi", "bye", "yeet"]
-};
-
-const headProps = {
-  titleText: "the oscars oo",
-  captionText: "little words go with title :3"
 };
 
 interface AppState {
@@ -54,27 +50,54 @@ export default class App extends React.Component<{}, AppState> {
   render() {
     if (!this.state) return <></>;
     const data = this.state.query.data["site.aml"];
-    console.log(data);
+    // console.log(data);
+    const { mobile } = mediaQueries;
     return (
       <div
         className={css`
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          background-color: black;
+          padding: 0 15%;
+          ${mobile} {
+            padding: 0 15px;
+          }
         `}
       >
-        <Header titleText={data.siteTitle} captionText={data.siteDescription} />
-        <TitleImage
-          credit={data.Author}
-          imgTitle={data.Headline}
-          imgCaption={data.blurb}
-          imgURL={data.imageURL}
-          imgAlt={data.imageAlt}
-        ></TitleImage>
-        <PollWrapper />
-        <ChartCard userData={graph_data} dbData={graph_data} />
-        <br></br>
-        <Card cardData={data.articleCards}> </Card>
+        <div
+          className={css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: ${colors.background};
+          `}
+        >
+          <Header
+            titleText={data.siteTitle}
+            captionText={data.siteDescription}
+          />
+          <Line />
+          <TitleImage
+            credit={data.author}
+            imgTitle={data.headline}
+            imgCaption={data.blurb}
+            imgURL={data.imageURL}
+            imgAlt={data.imageAlt}
+            articleLink={data.articleLink}
+          ></TitleImage>
+          <Line />
+          <PollWrapper />
+          <ChartCard userData={graph_data} dbData={graph_data} />
+          <Line />
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=6TfYqksI6hE"
+            className={css`
+              width: 100% !important;
+            `}
+          />
+          <Line />
+          {/*graphic*/}
+          <Line />
+          <Card cardData={data.articleCards}> </Card>
+        </div>
       </div>
     );
   }

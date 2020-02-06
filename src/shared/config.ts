@@ -1,7 +1,9 @@
 export const colors = {
   gold: "#F6D58B",
   black: "#272526",
-  grey: "#C4C4C4"
+  grey: "#C4C4C4",
+  line: "#E6E6E6",
+  background: "#F5F5F5"
 };
 
 export const fonts = {

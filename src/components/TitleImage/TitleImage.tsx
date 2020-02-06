@@ -7,7 +7,9 @@ const { gold, black, grey } = colors;
 const { title, baseText } = fonts;
 const { mobile, notMobile } = mediaQueries;
 
-const ContainerAll = styled("div")`
+const ContainerAll = styled("a")`
+  text-decoration: none;
+  color: ${black};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -70,12 +72,13 @@ interface TitleImageProps {
   imgCaption: string;
   imgURL: string;
   imgAlt: string;
+  articleLink: string;
 }
 
 export default class TitleImage extends React.Component<TitleImageProps> {
   render() {
     return (
-      <ContainerAll>
+      <ContainerAll href={this.props.articleLink} target="_blank">
         <Img>
           <img src={this.props.imgURL} alt={this.props.imgAlt}></img>
         </Img>
