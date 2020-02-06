@@ -15,8 +15,9 @@ const TitleImageProps = {
   imgCaption:
     "yes we predicted the oscars yes we predicted the oscars yes we predicted the oscars",
   imgURL: "imagfeurl"
+};
 
-var data = {
+const data = {
   datasets: [
     {
       data: ["1"],
@@ -32,30 +33,40 @@ const headProps = {
   captionText: "little words go with title :3"
 };
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Header
-          titleText={headProps.titleText}
-          captionText={headProps.captionText}
-        />
+interface AppState {
+  query: any; // TODO: specify data format
+}
+
+export default class App extends React.Component<{}, AppState> {
+  componentDidMount() {
+    const kerckhoffAPI =
+      "https://kerckhoff.dailybruin.com/api/packages/flatpages/interactive.2020.oscars";
+    fetch(kerckhoffAPI, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(results => results.json())
+      .then(results => this.setState({ query: results }));
+  }
+
+  render() {
+    if (!this.state) return <></>;
+    const data = this.state.query.data["site.aml"];
+    console.log(data);
+    return (
+      <div>
+        <Header titleText={data.siteTitle} captionText={data.siteDescription} />
+        <TitleImage
+          credit={data.Author}
+          imgTitle={data.Headline}
+          imgCaption={data.blurb}
+          imgURL={data.imageURL}
+          imgAlt={data.imageAlt}
+        ></TitleImage>
         <ChartCard userData={data} dbData={data} />
         <br></br>
         <Card> </Card>
-        <img src={logo} className="App-logo" alt="logo" />
-        <TitleImage
-          credit={TitleImageProps.credit}
-          imgTitle={TitleImageProps.imgTitle}
-          imgCaption={TitleImageProps.imgCaption}
-          imgURL={TitleImageProps.imgURL}
-        ></TitleImage>
-        <Question></Question>
-        <Poll></Poll>
-        <PollNumber></PollNumber>
-      </header>
-    </div>
-  );
-};
-
-export default App;
+      </div>
+    );
+  }
+}

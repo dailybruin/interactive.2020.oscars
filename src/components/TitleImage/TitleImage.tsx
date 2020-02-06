@@ -13,9 +13,8 @@ const ContainerAll = styled("div")`
   justify-content: center;
   word-wrap: break-word;
   width: 100%;
-  margin: 40px;
-  max-height: 600px;
-  max-width: 900px;
+  padding: 40px;
+  box-sizing: border-box;
   ${mobile} {
     flex-direction: column;
     align-items: center;
@@ -70,6 +69,7 @@ interface TitleImageProps {
   imgTitle: string;
   imgCaption: string;
   imgURL: string;
+  imgAlt: string;
 }
 
 export default class TitleImage extends React.Component<TitleImageProps> {
@@ -77,7 +77,7 @@ export default class TitleImage extends React.Component<TitleImageProps> {
     return (
       <ContainerAll>
         <Img>
-          <img src={this.props.imgURL} alt=""></img>
+          <img src={this.props.imgURL} alt={this.props.imgAlt}></img>
         </Img>
         <Container>
           <ImgCredit>{this.props.credit}</ImgCredit>

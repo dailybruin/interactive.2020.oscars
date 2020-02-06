@@ -8,17 +8,19 @@ import trophyWeb from "../../trophyWeb.svg";
 const { gold, black } = colors;
 const { mobile, notMobile } = mediaQueries;
 
+const Container = styled("div")`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const HeaderText = styled("div")`
   /* font-family: Circular Std; */
-  display: flex;
   font-style: normal;
   font-weight: 900;
   font-size: 96px;
-
-  display: flex;
-  align-items: center;
+  width: 100%;
   text-align: center;
-
   color: ${black};
 
   ${mobile} {
@@ -32,17 +34,15 @@ const CapText = styled("div")`
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
-  display: flex;
   align-items: center;
   text-align: center;
   color: ${black};
-
+  width: 100%;
   margin-bottom: 5%;
 `;
 
 const Trophy = styled("img")`
   margin-top: 5%;
-
   ${notMobile} {
     height: 241px;
     width: auto;
@@ -64,11 +64,11 @@ export default class Header extends React.Component<HeaderProps> {
     const caption = this.props.captionText;
 
     return (
-      <>
+      <Container>
         <Trophy src={trophyWeb} />
         <HeaderText>{title}</HeaderText>
         <CapText>{caption}</CapText>
-      </>
+      </Container>
     );
   }
 }
