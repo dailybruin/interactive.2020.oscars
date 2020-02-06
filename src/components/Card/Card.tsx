@@ -11,7 +11,7 @@ const Container = styled("div")`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   color: ${black};
   width: 80%;
   margin: 3%;
@@ -24,6 +24,7 @@ const Container = styled("div")`
 
 const CardLayout = styled("div")`
   margin-top: 2%;
+  width: 50%;
 
   ${mobile} {
     flex-direction: row;
@@ -39,7 +40,7 @@ const Description = styled("div")`
   }
 `;
 
-const Item = styled("div")`
+const Headline = styled("div")`
   flex: 0 50%;
   height: 100px;
   margin-bottom: 2%; /* (100-50*2)/2 */
@@ -50,6 +51,8 @@ const Item = styled("div")`
   margin: auto;
   width: 50%;
   padding: 4%;
+  text-align: center;
+  word-wrap: break-word;
 
   ${mobile} {
     width: 70%;
@@ -104,22 +107,30 @@ let testing = [
   "BeEp BOOp TITLE YEY"
 ];
 
-export default class Card extends React.Component {
+interface CardProps {
+  cardData: {
+    author: string;
+    imgURL: string;
+    imgAlt: string;
+    headline: string;
+    blurb: string;
+  }[];
+}
+
+export default class Card extends React.Component<CardProps> {
   render() {
+    const { cardData } = this.props;
     return (
       <Container>
-        {testing.map(card => (
+        {cardData.map(card => (
           <CardLayout>
             <BoxImage>
-              <img src="{Picture}" alt="image" />{" "}
+              <img src={card.imgURL} alt={card.imgAlt} />{" "}
             </BoxImage>
             <Description>
-              <Item>{card}</Item>
-              <MiniBy> by this person </MiniBy>
-              <MiniText>
-                This is what we predicted this is what we predicted this is what
-                we predicted
-              </MiniText>
+              <Headline>{card.headline}</Headline>
+              <MiniBy>{card.author}</MiniBy>
+              <MiniText>{card.blurb}</MiniText>
             </Description>
           </CardLayout>
         ))}

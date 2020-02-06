@@ -28,11 +28,11 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
       answer: " ",
       ques: [
         {
-          question: "fuckk",
+          question: "sksksks",
           answers: [
             "JED",
             "TYLER",
-            "PETER",
+            "beter",
             "LUKE",
             "GARRETTE",
             "MIKE",
@@ -43,7 +43,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           questionNumber: 1
         },
         {
-          question: "shittt",
+          question: "shizzle",
           answers: [
             "JED",
             "TYLER",
@@ -58,7 +58,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           questionNumber: 2
         },
         {
-          question: "GOOD SHIT",
+          question: "GOOD SHIzzle",
           answers: [
             "JED",
             "TYLER",
@@ -73,7 +73,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           questionNumber: 3
         },
         {
-          question: "fuck my life",
+          question: "duck my life",
           answers: [
             "JED",
             "TYLER",

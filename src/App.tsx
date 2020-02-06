@@ -9,6 +9,8 @@ import Card from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import PollWrapper from "./components/PollWrapper/PollWrapper";
 
+import { css } from "emotion";
+
 const TitleImageProps = {
   credit: "by this author",
   imgTitle: "WE PREDICTED THE WINNERS",
@@ -17,15 +19,15 @@ const TitleImageProps = {
   imgURL: "imagfeurl"
 };
 
-const data = {
+const graph_data = {
   datasets: [
     {
-      data: ["1"],
-      backgroundColor: ["#F6D58B"],
+      data: [1, 2, 3],
+      backgroundColor: ["#F6D58B", "#abcdef", "green"],
       label: "Dataset 1"
     }
   ],
-  labels: ["hi"]
+  labels: ["hi", "bye", "yeet"]
 };
 
 const headProps = {
@@ -54,7 +56,13 @@ export default class App extends React.Component<{}, AppState> {
     const data = this.state.query.data["site.aml"];
     console.log(data);
     return (
-      <div>
+      <div
+        className={css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        `}
+      >
         <Header titleText={data.siteTitle} captionText={data.siteDescription} />
         <TitleImage
           credit={data.Author}
@@ -63,9 +71,10 @@ export default class App extends React.Component<{}, AppState> {
           imgURL={data.imageURL}
           imgAlt={data.imageAlt}
         ></TitleImage>
-        <ChartCard userData={data} dbData={data} />
+        <PollWrapper />
+        <ChartCard userData={graph_data} dbData={graph_data} />
         <br></br>
-        <Card> </Card>
+        <Card cardData={data.articleCards}> </Card>
       </div>
     );
   }
