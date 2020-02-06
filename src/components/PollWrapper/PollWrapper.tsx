@@ -103,15 +103,12 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           questionNumber: 5
         }
       ],
-      // can I even do this
-      // numberOfQuestions: this.state.ques.length
       numberOfQuestions: 5
     };
     this.increment = this.increment.bind(this);
   }
   increment = () => {
-    if (this.state.ind < this.state.numberOfQuestions - 1)
-      this.setState({ ind: this.state.ind + 1 });
+    this.setState({ ind: this.state.ind + 1 });
     this.setState({
       answer: "xD"
     });
