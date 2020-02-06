@@ -28,7 +28,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
       answer: " ",
       ques: [
         {
-          question: "sksksks",
+          question: "ahhhhhhhhhhhhhhhhhhh",
           answers: [
             "JED",
             "TYLER",

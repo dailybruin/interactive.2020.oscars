@@ -12,9 +12,12 @@ const Container = styled("div")`
 
 const Item = styled("div")`
   width: 32%;
-  padding-bottom: 1%; /* Same as width, sets height */
-  margin-bottom: 1%; /* (100-32*3)/2 */
+  padding-bottom: 1%;
+  margin-bottom: 1%;
   position: relative;
+  @media only screen and (max-width: 700px) {
+    width: 50%;
+  }
 `;
 
 const ButtonxD = styled("button")`
@@ -32,6 +35,19 @@ const Box = styled("div")`
   color: #434343;
   background: #e1e1e1;
   border-radius: 41.5px;
+  @media only screen and (max-width: 1200px) {
+    width: 150px;
+    line-height: 67px;
+  }
+  @media only screen and (max-width: 1140px) {
+    width: 100px;
+    line-height: 50px;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 75px;
+    line-height: 35px;
+    font-size: 10px;
+  }
 `;
 
 interface PollState {}
