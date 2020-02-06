@@ -17,18 +17,13 @@ const Container = styled("div")`
   margin: 3%;
   text-align: center;
   align-content: center;
-
-  ${mobile} {
-  }
 `;
 
 const CardLayout = styled("div")`
   margin-top: 2%;
   width: 50%;
 
-  ${mobile} {
-    flex-direction: row;
-    display: flex;
+  @media only screen and (max-width: 710px) {
     padding-bottom: 1%;
   }
 `;
@@ -42,48 +37,43 @@ const Description = styled("div")`
 
 const Headline = styled("div")`
   flex: 0 50%;
-  height: 100px;
-  margin-bottom: 2%; /* (100-50*2)/2 */
+  margin-bottom: 2%;
   color: ${black};
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 900;
-  /* font-family: Avenir; */
   margin: auto;
   width: 50%;
   padding: 4%;
   text-align: center;
   word-wrap: break-word;
 
-  ${mobile} {
-    width: 70%;
-    height: auto;
-    font-size: 30px;
-    padding: 4%;
+  @media only screen and (max-width: 710px) {
+    width: 80%;
+    font-size: 16px;
+    padding: 2%;
   }
 `;
 
 const MiniBy = styled("div")`
   font-size: 18px;
   margin: auto;
-  /* font-family: Avenir; */
   width: 70%;
   padding-bottom: 3%;
 
-  ${mobile} {
-    font-size: 16px;
-    padding-bottom: 10%;
+  @media only screen and (max-width: 710px) {
+    font-size: 10px;
+    padding-bottom: 2%;
   }
 `;
 
 const MiniText = styled("div")`
   font-size: 18px;
   margin: auto;
-  /* font-family: Avenir; */
   width: 70%;
   padding-bottom: 7%;
 
-  ${mobile} {
-    display: none;
+  @media only screen and (max-width: 710px) {
+    font-size: 8px;
   }
 `;
 
@@ -92,12 +82,6 @@ const BoxImage = styled("div")`
   height: 213px;
   background: #c4c4c4;
   margin: auto;
-
-  ${mobile} {
-    width: 50%;
-    height: 100%;
-    justify-content: flex-start;
-  }
 `;
 
 let testing = [

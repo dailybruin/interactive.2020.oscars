@@ -108,7 +108,9 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
     this.increment = this.increment.bind(this);
   }
   increment = () => {
-    this.setState({ ind: this.state.ind + 1 });
+    if (this.state.ind < 4) {
+      this.setState({ ind: this.state.ind + 1 });
+    }
     this.setState({
       answer: "xD"
     });
