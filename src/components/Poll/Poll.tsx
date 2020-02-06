@@ -68,8 +68,7 @@ export default class Poll extends React.Component<PollProps, PollState> {
   }
 
   onAnswerClick(ans: string, idx: number): any {
-    this.props.incrementFunc();
-    // this.props.answer = ans;
+    this.props.incrementFunc(ans);
   }
 
   render() {
