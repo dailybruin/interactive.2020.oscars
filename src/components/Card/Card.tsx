@@ -16,8 +16,6 @@ const Container = styled("div")`
   margin: 3%;
   text-align: center;
   align-content: center;
-  ${mobile} {
-  }
 `;
 
 const CardLayout = styled("a")`

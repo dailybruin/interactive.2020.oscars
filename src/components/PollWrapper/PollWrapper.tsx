@@ -7,7 +7,7 @@ import PollNumber from "../PollNumber/PollNumber";
 
 interface PollState {
   ind: number;
-  showChart: number;
+  showChart: boolean;
   ques: {
     question: string;
     answers: string[];
@@ -23,12 +23,12 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      showChart: 0,
+      showChart: false,
       ind: 0,
       answer: " ",
       ques: [
         {
-          question: "sksksks",
+          question: "ahhhhhhhhhhhhhhhhhhh",
           answers: [
             "JED",
             "TYLER",
@@ -103,17 +103,43 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           questionNumber: 5
         }
       ],
-      // can I even do this
-      // numberOfQuestions: this.state.ques.length
       numberOfQuestions: 5
     };
-    this.increment = this.increment.bind(this);
+    var increment = this.increment.bind(this);
+    var answer = "";
   }
-  increment = () => {
-    if (this.state.ind < this.state.numberOfQuestions - 1)
+  // increment = () => {
+  //   if (this.state.ind < 4) {
+  //     this.setState({ ind: this.state.ind + 1 });
+  //   }
+  //   this.setState({
+  //     answer: "xD"
+  //   });
+  //   try {
+  //     fetch(
+  //       "http://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/sendanswer",
+  //       {
+  //         method: "POST",
+  //         body: JSON.stringify({
+  //           answer: this.state.answer,
+  //           questionId: 0
+  //         }), // data can be string or {object}!
+  //         headers: {
+  //           "Content-Type": "application/json"
+  //         }
+  //       }
+  //     );
+  //   } catch {
+  //     console.log("rip");
+  //   }
+  // };
+  increment = arg => {
+    if (this.state.ind < 4) {
       this.setState({ ind: this.state.ind + 1 });
+      this.setState({ showChart: !this.state.showChart }); // toggle showing chart
+    }
     this.setState({
-      answer: "xD"
+      answer: arg
     });
     try {
       fetch(
@@ -138,7 +164,8 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
       <div className="wrapper">
         <Question q={this.state.ques[this.state.ind].question}></Question>
         <Poll
-          incrementFunc={this.increment}
+          // incrementFunc={this.increment}
+          incrementFunc={this.increment.bind(this)}
           ans={this.state.ques[this.state.ind].answers}
         ></Poll>
         <PollNumber
