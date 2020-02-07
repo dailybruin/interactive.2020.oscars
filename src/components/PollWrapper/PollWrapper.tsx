@@ -169,11 +169,11 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
       showChart: true
     });
     const { idx } = this.state;
-    console.log("index");
-    console.log(idx);
+    // this.setState({ userData: db_data[0] });
+    // return;
     try {
       fetch(
-        "http://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/sendanswer",
+        "https://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/sendanswer",
         {
           method: "POST",
           body: JSON.stringify({
@@ -186,7 +186,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
         }
       ).then(_ => {
         fetch(
-          `http://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/questions/${idx}`,
+          `https://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/questions/${idx}`,
           {
             method: "GET",
             headers: {
@@ -251,6 +251,13 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           }
         `}
       >
+        <div
+          className={css`
+            margin-bottom: 20px;
+          `}
+        >
+          Poll: Respond to see results!
+        </div>
         <Question q={questions[idx].question}></Question>
 
         {showChart ? (

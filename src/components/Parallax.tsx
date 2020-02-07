@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import simpleParallax from "simple-parallax-js";
+import { css } from "emotion";
 
 import Pic1 from "../images/parallax/1.png";
 import Pic2 from "../images/parallax/2.png";
@@ -32,10 +33,10 @@ export default class ParallaxCover extends React.Component {
 
   parallax() {
     const elem = document.querySelector<HTMLElement>("#parallax");
-    let pos1 = `${50 - window.scrollY * 0.2}%`;
-    let pos2 = `${50 - window.scrollY * 0.3}%`;
+    let pos1 = `${50 - window.scrollY * 0.7}%`;
+    let pos2 = `${50 - window.scrollY * 0.5}%`;
     let pos3 = `${50 - window.scrollY * 0.4}%`;
-    let pos4 = `${50 - window.scrollY * 0.5}%`;
+    let pos4 = `${50 - window.scrollY * 0.35}%`;
     elem.style.backgroundPositionY =
       pos4 + ", " + pos3 + ", " + pos2 + ", " + pos1;
   }
@@ -45,6 +46,12 @@ export default class ParallaxCover extends React.Component {
       <>
         <OutWrapper>
           <Wrapper id="parallax"></Wrapper>
+          <div
+            className={css`
+              height: 10px;
+              background: black;
+            `}
+          ></div>
         </OutWrapper>
       </>
     );

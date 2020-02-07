@@ -24,7 +24,7 @@ function PieChart(props) {
           title: {
             display: true,
             text: props.title,
-            fontFamily: "Calibri",
+            fontFamily: "Nunito",
             fontSize: 30,
             fontColor: black
           },
@@ -72,8 +72,8 @@ export default class ChartCard extends React.Component<ChartCardProps> {
             }
           `}
         >
-          <PieChart title="User Votes" data={userData} />
-          <PieChart title="DB Votes" data={dbData} />
+          <PieChart title="Your Votes" data={userData} />
+          <PieChart title="DB Editor Votes" data={dbData} />
         </div>
 
         <div

@@ -1,13 +1,14 @@
 FROM node:8
 
-WORKDIR /
-RUN mkdir /app
+WORKDIR /usr/src/app
 
-ADD package.json app
-ADD index.js app
-ADD mongo app
+COPY package.json ./
 
-RUN cd /app; npm install
+RUN npm install
 
-EXPOSE 8080
-CMD ["npm", "dev"]
+COPY index.js ./
+COPY mongo ./mongo
+COPY sslcert ./sslcert
+
+EXPOSE 3000
+CMD [ "node", "index.js" ]
