@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import PollWrapper from "./components/PollWrapper/PollWrapper";
 import ReactPlayer from "react-player";
 import Magnifier from "react-magnifier";
+import Parallax from "./components/Parallax";
 
 import { css } from "emotion";
 import styled from "styled-components";
@@ -126,95 +127,98 @@ export default class App extends React.Component<{}, AppState> {
     // console.log(data);
     const { mobile, tablet } = mediaQueries;
     return (
-      <div
-        className={css`
-          background-color: black;
-          font-family: Nunito;
-          padding: 0 15%;
-          ${tablet} {
-            padding: 0 50px;
-          }
-          ${mobile} {
-            padding: 0 15px;
-          }
-        `}
-      >
+      <>
+        <Parallax />
         <div
           className={css`
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: ${colors.background};
+            background-color: black;
+            font-family: Nunito;
+            padding: 0 15%;
+            ${tablet} {
+              padding: 0 50px;
+            }
+            ${mobile} {
+              padding: 0 15px;
+            }
           `}
         >
-          <Header
-            titleText={data.siteTitle}
-            captionText={data.siteDescription}
-          />
-          <Line />
-          <TitleImage
-            credit={data.author}
-            imgTitle={data.headline}
-            imgCaption={data.blurb}
-            imgURL={data.imageURL}
-            imgAlt={data.imageAlt}
-            articleLink={data.articleLink}
-          ></TitleImage>
-          <Line />
-          <PollWrapper questions={ques} />
-          {data.videoURL != "yeet" && (
-            <>
-              <Line />
-              <ReactPlayer
-                url={data.videoURL}
-                className={css`
-                  /* width: 80% !important; */
-                  margin: 40px 0;
-                  ${mobile} {
-                    width: 100% !important;
-                  }
-                `}
-              />
-            </>
-          )}
-
-          <Line />
-          <Magnifier
-            src={data.graphicURL}
-            mgShape="square"
-            zoomFactor={0.6}
-            mgWidth={300}
-            mgHeight={300}
-            mgShowOverflow={false}
-            className={css`
-              margin: 40px 0;
-              max-width: 500px;
-            `}
-          />
-          <Line />
-          <Card cardData={data.articleCards}> </Card>
           <div
             className={css`
-              background-color: black;
-              min-height: 60px;
-              width: 100%;
-              padding: 30px;
-              box-sizing: border-box;
-              color: white;
-              text-align: center;
-              ${mobile} {
-                font-size: 12px;
-              }
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              background-color: ${colors.background};
             `}
           >
-            <div>Published February 7th, 2020.</div>
-            <div>
-              Developed by Max Wu, Jay Park, Henry Trinh, Janis Chen, Meilin
-              Cui, Matthew Ko, and Amy Seo. Developed by Lauren Ho.
+            <Header
+              titleText={data.siteTitle}
+              captionText={data.siteDescription}
+            />
+            <Line />
+            <TitleImage
+              credit={data.author}
+              imgTitle={data.headline}
+              imgCaption={data.blurb}
+              imgURL={data.imageURL}
+              imgAlt={data.imageAlt}
+              articleLink={data.articleLink}
+            ></TitleImage>
+            <Line />
+            <PollWrapper questions={ques} />
+            {data.videoURL != "yeet" && (
+              <>
+                <Line />
+                <ReactPlayer
+                  url={data.videoURL}
+                  className={css`
+                    /* width: 80% !important; */
+                    margin: 40px 0;
+                    ${mobile} {
+                      width: 100% !important;
+                    }
+                  `}
+                />
+              </>
+            )}
+
+            <Line />
+            <Magnifier
+              src={data.graphicURL}
+              mgShape="square"
+              zoomFactor={0.6}
+              mgWidth={300}
+              mgHeight={300}
+              mgShowOverflow={false}
+              className={css`
+                margin: 40px 0;
+                max-width: 500px;
+              `}
+            />
+            <Line />
+            <Card cardData={data.articleCards}> </Card>
+            <div
+              className={css`
+                background-color: black;
+                min-height: 60px;
+                width: 100%;
+                padding: 30px;
+                box-sizing: border-box;
+                color: white;
+                text-align: center;
+                ${mobile} {
+                  font-size: 12px;
+                }
+              `}
+            >
+              <div>Published February 7th, 2020.</div>
+              <div>
+                Developed by Max Wu, Jay Park, Henry Trinh, Janis Chen, Meilin
+                Cui, Matthew Ko, and Amy Seo. Developed by Lauren Ho.
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

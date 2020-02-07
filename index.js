@@ -6,8 +6,7 @@ const MongoHandler = require("./mongo/mongohandler");
 const mongoHandler = new MongoHandler();
 
 var app = express();
-app.use(bodyParser.json());
-app.use(cors);
+app.use(bodyParser.json()).use(cors());
 
 app.post("/api/sendanswer", function(req, res) {
   var answer = req.body.answer;
