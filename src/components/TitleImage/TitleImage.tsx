@@ -41,6 +41,8 @@ const Img = styled("img")`
   width: 60%;
   min-height: 200px;
   margin: 20px 20px;
+  object-fit: cover;
+
   ${mobile} {
     width: 90%;
     align-items: center;

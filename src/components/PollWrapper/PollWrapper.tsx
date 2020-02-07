@@ -22,27 +22,16 @@ interface PollProps {
   }[];
 }
 
-const graph_data = {
-  datasets: [
-    {
-      data: [1, 2, 3],
-      backgroundColor: ["#F6D58B", "#abcdef", "green"],
-      label: "Dataset 1"
-    }
-  ],
-  labels: ["hi", "bye", "yeet"]
-};
-
 const graph_colors = [
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "purple",
-  "pink",
-  "brown",
-  "black"
+  "#BE9A47",
+  "#D1AB52",
+  "#DDB863",
+  "#EAC164",
+  "#F1CA73",
+  "#FBD684",
+  "#FFDF98",
+  "#FFEABA",
+  "#FFF3D7"
 ];
 const db_data = [
   {

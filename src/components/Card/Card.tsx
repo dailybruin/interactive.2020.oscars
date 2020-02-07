@@ -100,7 +100,6 @@ const BoxImage = styled("img")`
   object-fit: cover;
   ${mobile} {
     width: 50% !important;
-    height: 100%;
     justify-content: flex-start;
   }
 `;
@@ -132,6 +131,7 @@ export default class Card extends React.Component<CardProps> {
           <CardLayout href={card.articleLink} target="_blank">
             <MiniBy
               className={css`
+                margin-bottom: 10px;
                 ${mobile} {
                   display: none;
                 }
@@ -144,6 +144,7 @@ export default class Card extends React.Component<CardProps> {
               <Headline>{card.headline}</Headline>
               <MiniBy
                 className={css`
+                  margin-top: 5px;
                   ${notMobile} {
                     display: none;
                   }

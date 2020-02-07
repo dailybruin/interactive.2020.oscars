@@ -7,6 +7,7 @@ const Container = styled("div")`
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 10px;
+  pointer-events: none;
 `;
 
 const Poll = styled("div")`
