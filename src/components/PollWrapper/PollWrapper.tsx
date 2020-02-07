@@ -174,31 +174,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
     };
     this.sendAnswer = this.sendAnswer.bind(this);
   }
-  // increment = () => {
-  //   if (this.state.ind < 4) {
-  //     this.setState({ ind: this.state.ind + 1 });
-  //   }
-  //   this.setState({
-  //     answer: "xD"
-  //   });
-  //   try {
-  //     fetch(
-  //       "http://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/sendanswer",
-  //       {
-  //         method: "POST",
-  //         body: JSON.stringify({
-  //           answer: this.state.answer,
-  //           questionId: 0
-  //         }), // data can be string or {object}!
-  //         headers: {
-  //           "Content-Type": "application/json"
-  //         }
-  //       }
-  //     );
-  //   } catch {
-  //     console.log("rip");
-  //   }
-  // };
+
   sendAnswer(arg, i) {
     this.setState({
       showChart: true
@@ -279,8 +255,10 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
           flex-direction: column;
           align-items: center;
           justify-content: flex-end;
+          margin: 40px 0;
           ${mobile} {
             height: 100vh;
+            margin: 0;
           }
         `}
       >

@@ -9,6 +9,7 @@ import Card from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import PollWrapper from "./components/PollWrapper/PollWrapper";
 import ReactPlayer from "react-player";
+import Magnifier from "react-magnifier";
 
 import { css } from "emotion";
 import styled from "styled-components";
@@ -128,6 +129,7 @@ export default class App extends React.Component<{}, AppState> {
       <div
         className={css`
           background-color: black;
+          font-family: Nunito;
           padding: 0 15%;
           ${tablet} {
             padding: 0 50px;
@@ -162,15 +164,50 @@ export default class App extends React.Component<{}, AppState> {
           <PollWrapper questions={ques} />
           <Line />
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=6TfYqksI6hE"
+            url={data.videoURL}
             className={css`
-              width: 100% !important;
+              /* width: 80% !important; */
+              margin: 40px 0;
+              ${mobile} {
+                width: 100% !important;
+              }
             `}
           />
           <Line />
-          {/*graphic*/}
+          <Magnifier
+            src={data.graphicURL}
+            mgShape="square"
+            zoomFactor={0.6}
+            mgWidth={300}
+            mgHeight={300}
+            mgShowOverflow={false}
+            className={css`
+              margin: 40px 0;
+              max-width: 500px;
+            `}
+          />
           <Line />
           <Card cardData={data.articleCards}> </Card>
+          <div
+            className={css`
+              background-color: black;
+              min-height: 60px;
+              width: 100%;
+              padding: 30px;
+              box-sizing: border-box;
+              color: white;
+              text-align: center;
+              ${mobile} {
+                font-size: 12px;
+              }
+            `}
+          >
+            <div>Published February 7th, 2020.</div>
+            <div>
+              Developed by Max Wu, Jay Park, Henry Trinh, Janis Chen, Meilin
+              Cui, Matthew Ko, and Amy Seo. Developed by Lauren Ho.
+            </div>
+          </div>
         </div>
       </div>
     );

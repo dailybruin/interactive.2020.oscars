@@ -13,7 +13,6 @@ const Container = styled("div")`
   justify-content: flex-start;
   color: ${colors.black};
   width: 100%;
-  margin: 3%;
   text-align: center;
   align-content: center;
 `;
@@ -31,6 +30,11 @@ const CardLayout = styled("a")`
   align-items: center;
   justify-content: flex-start;
 
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+  }
+
   ${tablet} {
     padding: 20px;
   }
@@ -44,26 +48,29 @@ const CardLayout = styled("a")`
 
 const Description = styled("div")`
   width: 100%;
+  word-wrap: break-word;
+  text-align: center;
   ${mobile} {
     justify-content: flex-end;
     flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    width: 50%;
   }
 `;
 
 const Headline = styled("div")`
-  flex: 0 50%;
-  margin-bottom: 2%; /* (100-50*2)/2 */
   color: ${colors.black};
   font-size: 24px;
   font-weight: 900;
-  /* font-family: Avenir; */
   width: 100%;
   text-align: center;
-  word-wrap: break-word;
-
+  margin-top: 10px;
+  font-family: Montserrat;
+  font-weight: 600;
   ${mobile} {
-    width: 100%;
     font-size: 20px;
+    width: 100% !important;
   }
 `;
 
@@ -71,16 +78,14 @@ const MiniBy = styled("div")`
   font-size: 18px;
   /* font-family: Avenir; */
   width: 100%;
-  padding-bottom: 3%;
-
   ${mobile} {
     font-size: 14px;
-    padding-bottom: 10%;
   }
 `;
 
 const MiniText = styled("div")`
-  font-size: 18px;
+  font-size: 14px;
+  margin-top: 10px;
   /* font-family: Avenir; */
   width: 100%;
   ${mobile} {
@@ -88,11 +93,13 @@ const MiniText = styled("div")`
   }
 `;
 
-const BoxImage = styled("div")`
+const BoxImage = styled("img")`
   width: 100%;
   background: #c4c4c4;
+  height: 200px;
+  object-fit: cover;
   ${mobile} {
-    width: 50%;
+    width: 50% !important;
     height: 100%;
     justify-content: flex-start;
   }
@@ -108,8 +115,8 @@ let testing = [
 interface CardProps {
   cardData: {
     author: string;
-    imgURL: string;
-    imgAlt: string;
+    imageURL: string;
+    imageAlt: string;
     headline: string;
     blurb: string;
     articleLink: string;
@@ -123,12 +130,27 @@ export default class Card extends React.Component<CardProps> {
       <Container>
         {cardData.map(card => (
           <CardLayout href={card.articleLink} target="_blank">
-            <BoxImage>
-              <img src={card.imgURL} alt={card.imgAlt} />{" "}
-            </BoxImage>
+            <MiniBy
+              className={css`
+                ${mobile} {
+                  display: none;
+                }
+              `}
+            >
+              {card.author}
+            </MiniBy>
+            <BoxImage src={card.imageURL} alt={card.imageAlt}></BoxImage>
             <Description>
               <Headline>{card.headline}</Headline>
-              <MiniBy>{card.author}</MiniBy>
+              <MiniBy
+                className={css`
+                  ${notMobile} {
+                    display: none;
+                  }
+                `}
+              >
+                {card.author}
+              </MiniBy>
               <MiniText>{card.blurb}</MiniText>
             </Description>
           </CardLayout>

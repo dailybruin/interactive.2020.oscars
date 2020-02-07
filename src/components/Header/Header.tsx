@@ -6,13 +6,18 @@ import { colors, fonts, mediaQueries } from "../../shared/config";
 import trophyWeb from "../../trophyWeb.svg";
 
 const { gold, black } = colors;
+const { title } = fonts;
 const { mobile, notMobile } = mediaQueries;
 
 const Container = styled("div")`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 0px 40px;
+  font-family: Nunito;
+  ${mobile} {
+    padding: 0px 10px;
+  }
 `;
 
 const HeaderText = styled("div")`
@@ -24,7 +29,8 @@ const HeaderText = styled("div")`
   width: 90%;
   color: ${black};
   margin: 30px 0;
-
+  font-family: ${title};
+  font-weight: 700;
   @media only screen and (max-width: 700px) {
     font-weight: 900;
     font-size: 50px;
@@ -35,12 +41,13 @@ const HeaderText = styled("div")`
     font-weight: 900;
     font-size: 30px;
     width: 75%;
+    ${mobile} {
+      width: 95%;
+    }
   }
-  margin: auto;
 `;
 
 const CapText = styled("div")`
-  display: flex;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -48,18 +55,11 @@ const CapText = styled("div")`
   text-align: center;
   color: ${black};
   width: 75%;
-  margin-bottom: 5%;
   justify-content: center;
-
-  @media only screen and (max-width: 700px) {
-    width: 100%;
+  margin-bottom: 60px;
+  ${mobile} {
+    width: 95%;
   }
-
-  @media only screen and (max-width: 500px) {
-    font-size: 18px;
-    width: 75%;
-  }
-  margin: auto;
 `;
 
 const Trophy = styled("img")`

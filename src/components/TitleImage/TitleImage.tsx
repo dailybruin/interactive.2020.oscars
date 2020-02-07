@@ -17,6 +17,10 @@ const ContainerAll = styled("a")`
   width: 100%;
   padding: 40px;
   box-sizing: border-box;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+  }
   ${mobile} {
     flex-direction: column;
     align-items: center;
@@ -24,12 +28,11 @@ const ContainerAll = styled("a")`
 `;
 
 const Container = styled("div")`
-  justify-content: center;
-  margin: 10px 25px;
+  text-align: center;
+  margin: 15px;
   width: 40%;
   ${mobile} {
     width: 90%;
-    margin: 10px 10px;
   }
 `;
 
@@ -41,29 +44,38 @@ const Img = styled("img")`
   ${mobile} {
     width: 90%;
     align-items: center;
+    margin: 0 10px;
   }
 `;
 
 const ImgCredit = styled("div")`
   font-family: ${baseText};
   font-size: 16px;
-  margin: 15px 15px;
   color: ${black};
+  ${mobile} {
+    font-size: 14px;
+  }
 `;
 
 const ImgTitle = styled("div")`
   font-family: ${title};
-  font-weight: 900;
+  font-weight: 700;
   font-size: 40px;
-  margin: 20px 20px;
   color: ${black};
+  margin: 20px 0;
+  ${mobile} {
+    font-size: 30px;
+    margin: 0;
+  }
 `;
 
 const ImgCaption = styled("div")`
   font-family: ${baseText};
   font-size: 18px;
-  margin: 15px 15px;
   color: ${black};
+  ${mobile} {
+    font-size: 12px;
+  }
 `;
 
 interface TitleImageProps {

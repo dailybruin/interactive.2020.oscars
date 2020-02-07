@@ -7,9 +7,9 @@ export const colors = {
 };
 
 export const fonts = {
-  title: "Circular Std",
-  baseText: "Avenir",
-  body: "Avenir"
+  title: "Montserrat",
+  baseText: "Nunito",
+  body: "Nunito"
 };
 
 export const mediaQueries = {
