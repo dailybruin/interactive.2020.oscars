@@ -16,31 +16,50 @@ const Container = styled("div")`
 `;
 
 const HeaderText = styled("div")`
-  /* font-family: Circular Std; */
   font-style: normal;
   font-weight: 900;
   font-size: 60px;
   width: 100%;
   text-align: center;
+  width: 90%;
   color: ${black};
   margin: 30px 0;
 
-  ${mobile} {
+  @media only screen and (max-width: 700px) {
     font-weight: 900;
     font-size: 50px;
+    width: 100%;
   }
+
+  @media only screen and (max-width: 500px) {
+    font-weight: 900;
+    font-size: 30px;
+    width: 75%;
+  }
+  margin: auto;
 `;
 
 const CapText = styled("div")`
-  /* font-family: Avenir; */
+  display: flex;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   align-items: center;
   text-align: center;
   color: ${black};
-  width: 100%;
+  width: 75%;
   margin-bottom: 5%;
+  justify-content: center;
+
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 18px;
+    width: 75%;
+  }
+  margin: auto;
 `;
 
 const Trophy = styled("img")`

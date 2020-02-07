@@ -1,39 +1,50 @@
 import React from "react";
 import { css } from "emotion";
 import styled from "styled-components";
+import { colors } from "../../shared/config";
 
 const Container = styled("div")`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  width: 80%;
 `;
 
 const Item = styled("div")`
+  padding: 10px;
+  box-sizing: border-box;
   width: 32%;
-  padding-bottom: 0%; /* 32:18, i.e. 16:9 */
-  margin-bottom: 2%; /* (100-32*3)/2 */
+  position: relative;
+  @media only screen and (max-width: 700px) {
+    width: 50%;
+  }
+`;
+
+const ButtonxD = styled("div")`
+  border: none;
+  text-align: center;
+  background-color: ${colors.background};
+  width: 100%;
+  border-radius: 41.5px;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(130%);
+  }
 `;
 
 const Box = styled("div")`
+  box-sizing: border-box;
   font-style: normal;
+  width: 100%;
   font-weight: 300;
   font-size: 18px;
-  line-height: 25px;
-
-  /* identical to box height */
-  /* text-transform: uppercase; */
-
+  padding: 10px;
   color: #434343;
-
   background: #e1e1e1;
   border-radius: 41.5px;
 `;
 
 interface PollState {}
-const ButtonxD = styled("button")`
-  border: none;
-  background: #f5f5f5;
-`;
 
 interface PollState {
   showChart: number;
@@ -42,7 +53,7 @@ interface PollState {
 
 interface PollProps {
   ans: string[];
-  incrementFunc: any;
+  onAnswerClick: any;
 }
 
 export default class Poll extends React.Component<PollProps, PollState> {
@@ -51,8 +62,7 @@ export default class Poll extends React.Component<PollProps, PollState> {
   }
 
   onAnswerClick(ans: string, idx: number): any {
-    this.props.incrementFunc();
-    // this.props.answer = ans;
+    this.props.onAnswerClick(ans);
   }
 
   render() {

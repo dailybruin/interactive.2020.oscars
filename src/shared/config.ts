@@ -14,5 +14,6 @@ export const fonts = {
 
 export const mediaQueries = {
   mobile: "@media (max-width: 700px)",
-  notMobile: "@media (min-width: 701px)"
+  notMobile: "@media (min-width: 701px)",
+  tablet: "@media (max-width: 900px)"
 };

@@ -33,7 +33,7 @@ const Container = styled("div")`
   }
 `;
 
-const Img = styled("div")`
+const Img = styled("img")`
   background: ${grey};
   width: 60%;
   min-height: 200px;
@@ -79,9 +79,7 @@ export default class TitleImage extends React.Component<TitleImageProps> {
   render() {
     return (
       <ContainerAll href={this.props.articleLink} target="_blank">
-        <Img>
-          <img src={this.props.imgURL} alt={this.props.imgAlt}></img>
-        </Img>
+        <Img src={this.props.imgURL} alt={this.props.imgAlt} />
         <Container>
           <ImgCredit>{this.props.credit}</ImgCredit>
           <ImgTitle>{this.props.imgTitle}</ImgTitle>

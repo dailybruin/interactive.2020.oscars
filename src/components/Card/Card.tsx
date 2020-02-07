@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Picture from "../../images/Rectangle 37.png";
 import { colors, fonts, mediaQueries } from "../../shared/config";
 
-const { mobile, notMobile } = mediaQueries;
+const { mobile, notMobile, tablet } = mediaQueries;
 
 const Container = styled("div")`
   display: flex;
@@ -16,8 +16,6 @@ const Container = styled("div")`
   margin: 3%;
   text-align: center;
   align-content: center;
-  ${mobile} {
-  }
 `;
 
 const CardLayout = styled("a")`
@@ -32,6 +30,10 @@ const CardLayout = styled("a")`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  ${tablet} {
+    padding: 20px;
+  }
   ${mobile} {
     flex-direction: row;
     display: flex;
@@ -41,7 +43,7 @@ const CardLayout = styled("a")`
 `;
 
 const Description = styled("div")`
-  width: 50%;
+  width: 100%;
   ${mobile} {
     justify-content: flex-end;
     flex-direction: column;

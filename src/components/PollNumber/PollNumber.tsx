@@ -6,20 +6,28 @@ const Container = styled("div")`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 5px;
+  margin: 10px;
 `;
 
 const Poll = styled("div")`
   width: 47px;
   height: 47px;
-  left: 562px;
-  top: 2307px;
+
+  @media only screen and (max-width: 980px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media only screen and (max-width: 390px) {
+    width: 30px;
+    height: 30px;
+  }
 
   display: flex;
   border: 1px solid #272526;
   border-radius: 26px;
   justify-content: center;
-  margin: 5px; /* and that, will result in a 10px gap */
+  margin: 5px;
 `;
 
 const PollText = styled("div")`
@@ -40,6 +48,16 @@ const PollText = styled("div")`
 const CurPoll = styled("div")`
   width: 94px;
   height: 47px;
+
+  @media only screen and (max-width: 980px) {
+    width: 84px;
+    height: 40px;
+  }
+
+  @media only screen and (max-width: 390px) {
+    width: 64px;
+    height: 30px;
+  }
 
   display: flex;
   border: 1px solid #272526;
