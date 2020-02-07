@@ -2,12 +2,14 @@ import React from "react";
 import { css } from "emotion";
 import styled from "styled-components";
 import { colors } from "../../shared/config";
+import FadeIn from "react-fade-in";
 
 const Container = styled("div")`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 80%;
+  margin: auto;
 `;
 
 const Item = styled("div")`
@@ -67,15 +69,17 @@ export default class Poll extends React.Component<PollProps, PollState> {
 
   render() {
     return (
-      <Container>
-        {this.props.ans.map((an, idx) => (
-          <Item>
-            <ButtonxD onClick={() => this.onAnswerClick(an, idx)}>
-              <Box>{an}</Box>
-            </ButtonxD>
-          </Item>
-        ))}
-      </Container>
+      <FadeIn>
+        <Container>
+          {this.props.ans.map((an, idx) => (
+            <Item>
+              <ButtonxD onClick={() => this.onAnswerClick(an, idx)}>
+                <Box>{an}</Box>
+              </ButtonxD>
+            </Item>
+          ))}
+        </Container>
+      </FadeIn>
     );
   }
 }
