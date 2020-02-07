@@ -162,17 +162,22 @@ export default class App extends React.Component<{}, AppState> {
           ></TitleImage>
           <Line />
           <PollWrapper questions={ques} />
-          <Line />
-          <ReactPlayer
-            url={data.videoURL}
-            className={css`
-              /* width: 80% !important; */
-              margin: 40px 0;
-              ${mobile} {
-                width: 100% !important;
-              }
-            `}
-          />
+          {data.videoURL != "yeet" && (
+            <>
+              <Line />
+              <ReactPlayer
+                url={data.videoURL}
+                className={css`
+                  /* width: 80% !important; */
+                  margin: 40px 0;
+                  ${mobile} {
+                    width: 100% !important;
+                  }
+                `}
+              />
+            </>
+          )}
+
           <Line />
           <Magnifier
             src={data.graphicURL}
