@@ -173,7 +173,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
     // return;
     try {
       fetch(
-        "https://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/sendanswer",
+        "https://interactive-oscars-2020.backend.dailybruin.com/api/sendanswer",
         {
           method: "POST",
           body: JSON.stringify({
@@ -186,7 +186,7 @@ export default class PollWrapper extends React.Component<PollProps, PollState> {
         }
       ).then(_ => {
         fetch(
-          `https://interactive-oscars-2020.interactive-2020-oscars.primary.dailybruin.com:14765/api/questions/${idx}`,
+          `https://interactive-oscars-2020.backend.dailybruin.com/api/questions/${idx}`,
           {
             method: "GET",
             headers: {

@@ -47,6 +47,6 @@ var server = https.createServer(
   app
 );
 
-server.listen(3000, function() {
+app.listen(3000, function() {
   console.log("listening on port 3000");
 });
